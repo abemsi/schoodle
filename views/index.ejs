@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
     <link rel="stylesheet" href="/styles/create-container.css" type="text/css">
@@ -12,11 +14,17 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/vendor/zabuto_calendar.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+    
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script src="/vendor/zabuto_calendar.min.js"></script>
     <script type="application/javascript">
       $(document).ready(function () {
+        console.log(jQuery)
           $("#my-calendar").zabuto_calendar({language: "en"});
       });
   </script>
@@ -45,33 +53,32 @@
           <h1> STEP 1: ENTER EVENT DETAILS </h1>
           <label for="event-title">EVENT TITLE</label>
           <br>
-          <input type="text" name="event-title" placeholder="enter name of event" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+          <input type="text" name="event-title" placeholder="enter name of event" style="margin-bottom: 1em; margin-top: 1em">
           <br>
           <label for="description">DESCRIPTION</label>
           <br>
-          <input type="text" name="description" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+          <input type="text" name="description" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em">
           <br>
           <label for="location">LOCATION</label>
           <br>
-          <input type="text" name="location" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+          <input type="text" name="location" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em">
         </div>
 
         <div class="options">
           <h1> STEP 2: PICK YOUR DATES </h1>
-          <div id="my-calendar"></div>
-
         </div>
+        <div id="my-calendar"></div>
 
 
         <div class="creator-info">
           <h1>STEP 3: CONTACT INFO </h1>
           <label for="creator-name">NAME</label>
           <br>
-          <input type="text" name="creator-name" placeholder="enter name" style="margin-bottom: 1em; margin-top: 1em; width: 500px" required="">
+          <input type="text" name="creator-name" placeholder="enter name" style="margin-bottom: 1em; margin-top: 1em" required="">
           <br>
           <label for="creator-email">EMAIL</label>
           <br>
-          <input type="email" name="email" placeholder="enter email" style="margin-bottom: 1em; margin-top: 1em; width: 500px" required="">
+          <input type="email" name="email" placeholder="enter email" style="margin-bottom: 1em; margin-top: 1em" required="">
         </div>
       </form>
     </main>
