@@ -3,15 +3,70 @@
   <head>
     <title>Home Page</title>
 
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="/styles/header.css" type="text/css">
+    <link rel="stylesheet" href="/styles/create-container.css" type="text/css">
+    <!-- default stylesheets-->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    
+    <nav>
+      <span class="logo">
+       <strong>SCHOODLE</strong>
+      </span>
+    </nav>
+    
+    <div class="main-header">
+      <header>
+        CREATE SCHOODLE
+      </header>
+    </div>
+    
+    <main class="create-container">
+        
+        
+      <form>
+        <div class="schoodle-form">
+          <h1> STEP 1: ENTER EVENT DETAILS </h1>
+          <label for="event-title">EVENT TITLE</label>
+          <br>
+          <input type="text" name="event-title" placeholder="enter name of event" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+          <br>
+          <label for="description">DESCRIPTION</label>
+          <br>
+          <input type="text" name="description" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+          <br>
+          <label for="location">LOCATION</label>
+          <br>
+          <input type="text" name="location" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
+        </div>
+          
+        <div class="options">
+          <h1> STEP 2: PICK YOUR DATES </h1>
+          <!-- <div class="myCalendar" id="myCalendar-1">
+          <input class="myInput" id="myDatePicker-1" data-lang="ru" data-years="1995-2013" data-sundayfirst="false" />  -->
+        </div>
+     
+     
+        <div class="creator-info">
+          <h1>STEP 3: CONTACT INFO </h1>
+          <label for="creator-name">NAME</label>
+          <br>
+          <input type="text" name="creator-name" placeholder="enter name" style="margin-bottom: 1em; margin-top: 1em; width: 500px" required="">
+          <br>
+          <label for="creator-email">EMAIL</label>
+          <br>
+          <input type="email" name="email" placeholder="enter email" style="margin-bottom: 1em; margin-top: 1em; width: 500px" required="">
+        </div>
+      </form>
+    </main>
   </body>
 </html>
