@@ -1,0 +1,30 @@
+.create-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+  border: solid 2px;
+  border-radius: 10px;
+  margin-right: 30em;
+  margin-left: 30em;
+  background-color: rgb(248, 227, 196);
+}
+
+.schoodle-form {
+  margin-bottom: 10px;
+  border-bottom: solid orange;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  border-bottom: solid orange;
+}
+
+.creator-info {
+    border-bottom: solid orange;
+  }
+
+  body {
+    background-color: rgb(253, 227, 153);
+  }
