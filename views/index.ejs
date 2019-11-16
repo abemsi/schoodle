@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
     <link rel="stylesheet" href="/styles/create-container.css" type="text/css">
@@ -10,29 +10,36 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/zabuto_calendar.min.css">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="/vendor/zabuto_calendar.min.js"></script>
+    <script type="application/javascript">
+      $(document).ready(function () {
+          $("#my-calendar").zabuto_calendar({language: "en"});
+      });
+  </script>
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
   </head>
 
   <body>
-    
+
     <nav>
       <span class="logo">
        <strong>SCHOODLE</strong>
       </span>
     </nav>
-    
+
     <div class="main-header">
       <header>
         CREATE SCHOODLE
       </header>
     </div>
-    
+
     <main class="create-container">
-        
-        
+
+
       <form>
         <div class="schoodle-form">
           <h1> STEP 1: ENTER EVENT DETAILS </h1>
@@ -48,14 +55,14 @@
           <br>
           <input type="text" name="location" placeholder="optional" style="margin-bottom: 1em; margin-top: 1em; width: 500px">
         </div>
-          
+
         <div class="options">
           <h1> STEP 2: PICK YOUR DATES </h1>
-          <!-- <div class="myCalendar" id="myCalendar-1">
-          <input class="myInput" id="myDatePicker-1" data-lang="ru" data-years="1995-2013" data-sundayfirst="false" />  -->
+          <div id="my-calendar"></div>
+
         </div>
-     
-     
+
+
         <div class="creator-info">
           <h1>STEP 3: CONTACT INFO </h1>
           <label for="creator-name">NAME</label>
