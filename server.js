@@ -9,8 +9,6 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const moment     = require('moment');
-
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -48,9 +46,9 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-/** 
+/**
  * GET/POST ROUTES FOR HOMEPAGE TO CREATE SCHOODLE
- * */ 
+ * */
 app.get("/", (req, res) => {
   res.render("index");
 });
