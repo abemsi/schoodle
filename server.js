@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const moment     = require('moment');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -46,7 +47,31 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+/** 
+ * GET/POST ROUTES FOR HOMEPAGE TO CREATE SCHOODLE
+ * */ 
 app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.post("/", (req, res) => {
+  res.render("index");
+});
+
+/* GET/POST ROUTES TO PARTICIPATE IN SCHOODLE
+*/
+app.get("/schoodles/:id", (req, res) => {
+  res.render("index");
+});
+
+app.post("/schoodles/:id", (req, res) => {
+  res.render("index");
+});
+
+/* PUT ROUTE TO UPDATE / EDIT SCHOODLE
+*/
+app.put("/schoodles/:id", (req, res) => {
   res.render("index");
 });
 
