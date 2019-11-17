@@ -10,7 +10,7 @@ const sass          = require("node-sass-middleware");
 const app           = express();
 const morgan        = require('morgan');
 const cookieSession = require('cookie-session');
-
+const { generateRandomString } = require('./helpers')
 // cookie-session
 app.use(cookieSession({
   name: 'session',
@@ -64,8 +64,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/schoodles", (req, res) => {
-  console.log(req.body)
+app.post("schoodles/:id", (req, res) => {
+   console.log(req.body)
+  let link = generateRandomString();
+  // console.log(req.body)
   res.render("schoodles");
 });
 
