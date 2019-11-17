@@ -17,17 +17,14 @@ $(document).ready(function () {
           //get the selected date
           var date = $('#' + this.id).data('date');
           //alert the date
+          $('#calendar-dates').val(date);
           alert('You clicked date: ' + date);
         },
 
       eventClick: function(date) {
-        $(this).css('border-color', 'orange');
+        $(this).css('background-color', 'orange');
       }
   });
 });
-
-
-console.log($('#calendar-dates', 'here').val(date));
-
 
 
