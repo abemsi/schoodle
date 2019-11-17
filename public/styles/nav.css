@@ -7,8 +7,9 @@ nav {
   height: 120px;
   z-index: 9999;
   background-color: orange;
+  border-bottom: solid 4px #333;
   padding: 1.5em;
-  color: white;
+  color: #333
   /* text-align: center; */
 }
 
