@@ -27,7 +27,7 @@ $(document).ready(function () {
 });
 
 
-alert($('input[type=hidden]#calendar-dates').val());
+console.log($('#calendar-dates', 'here').val(date));
 
 
 
