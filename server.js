@@ -65,6 +65,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/schoodles", (req, res) => {
+  console.log(req.body)
   res.render("schoodles");
 });
 
