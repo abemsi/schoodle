@@ -2,13 +2,19 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const PORT          = process.env.PORT || 8080;
+const ENV           = process.env.ENV || "development";
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
+const cookieSession = require('cookie-session');
+
+// cookie-session
+app.use(cookieSession({
+  name: 'session',
+  keys: ["bloop"]}));
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -50,11 +56,16 @@ app.use("/api/widgets", widgetsRoutes(db));
  * GET/POST ROUTES FOR HOMEPAGE TO CREATE SCHOODLE
  * */
 app.get("/", (req, res) => {
+  const user = req.session.user_id
+  if (!user) {
+    console.log('no cookie found')
+  }
+  console.log('page opened')
   res.render("index");
 });
 
-app.post("/", (req, res) => {
-  res.render("index");
+app.post("/schoodles", (req, res) => {
+  res.render("schoodles");
 });
 
 /* GET/POST ROUTES TO PARTICIPATE IN SCHOODLE
