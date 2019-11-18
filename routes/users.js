@@ -11,15 +11,32 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
-      .then(data => {
+    console.log('working')
+    .then(data => {
         const users = data.rows;
         res.json({ users });
       })
       .catch(err => {
         res
-          .status(500)
+          .status(404)
           .json({ error: err.message });
       });
   });
+  
+  router.post("/", (req, res) => {
+    const user = req.body;
+    console.log('MADE POST TO DATABASE')
+    database.addUser(user)
+    .then(user => {
+      if (!user) {
+        res.send({error: "error"});
+        return;
+      }
+      req.session.user_id = user.id;
+      res.send("🤗");
+    })
+    .catch(e => res.send(e));
+  });
+  
   return router;
 };

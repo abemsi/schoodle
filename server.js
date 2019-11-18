@@ -65,9 +65,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  //  console.log(req.body)
   // let link = generateRandomString();
-  // console.log(req.body)
+  console.log(req.body)
   res.redirect("schoodles");
 });
 
