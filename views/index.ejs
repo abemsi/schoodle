@@ -4,7 +4,8 @@
     <title>Home Page</title>
 
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="/styles/animations.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
@@ -45,6 +46,9 @@
     <div class="main-header">
       <header>
         CREATE SCHOODLE
+        <div id="bouncingArrow">
+          <i class='fa fa-arrow-down'></i>
+        </div>
       </header>
     </div>
 
@@ -54,15 +58,15 @@
       <form method="POST" id="user_id" action="/schoodles">
         <div class="schoodle-form">
           <h1> STEP 1: ENTER EVENT DETAILS </h1>
-          <label for="event-title">EVENT TITLE</label>
+          <label for="event-title"><u>EVENT TITLE</u></label>
           <br>
-          <input id="form" type="text" name="event-title" placeholder=" enter name of event" style="margin-bottom: 1em; margin-top: 1em" required="">
+          <input id="form" type="text" name="event-title" placeholder=" name of event" style="margin-bottom: 1em; margin-top: 1em" required="">
           <br>
-          <label for="description">DESCRIPTION</label>
+          <label for="description"><u>DESCRIPTION</u></label>
           <br>
           <input id="form" type="text" name="description" placeholder=" optional" style="margin-bottom: 1em; margin-top: 1em">
           <br>
-          <label for="location"> LOCATION </label>
+          <label for="location"><u>LOCATION</u></label>
           <br>
           <input id="form" type="text" name="location" placeholder=" optional" style="margin-bottom: 1em; margin-top: 1em">
         </div>
@@ -76,11 +80,11 @@
 
         <div class="creator-info">
           <h1>STEP 3: CONTACT INFO </h1>
-          <label for="creator-name">NAME</label>
+          <label for="creator-name"><u>NAME</u></label>
           <br>
           <input id="form" type="text" name="creator-name" placeholder=" enter name" style="margin-bottom: 1em; margin-top: 1em" required="">
           <br>
-          <label for="creator-email">EMAIL</label>
+          <label for="creator-email"><u>EMAIL</u></label>
           <br>
           <input id="form" type="email" name="email" placeholder=" enter email" style="margin-bottom: 1em; margin-top: 1em" required="">
         </div>
@@ -88,4 +92,5 @@
       </form>
     </main>
   </body>
+  <script src="/scripts/arrow.js"></script>
 </html>
