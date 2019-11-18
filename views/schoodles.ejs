@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/table.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/vendor/zabuto_calendar.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -24,16 +25,15 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/calendar.js"></script>
+    <script type="text/javascript" src="/scripts/resultTable.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="/vendor/zabuto_calendar.min.js"></script>
     <script type="application/javascript">
       $(document).ready(function () {
         console.log(jQuery)
           $("#my-calendar").zabuto_calendar({language: "en"});
       });
-      $(document).ready(function () {
-        console.log(jQuery)
-          $("#my-calendar").zabuto_calendar({language: "en"});
-      });
+
   </script>
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
   </head>
@@ -46,25 +46,34 @@
       </span>
     </nav>
 
-    <div class="main-header;", style="margin: 1em;">
-        <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Option 1</th>
-              <th scope="col">Option 2</th>
-            </tr>
-          </thead>
-          <tbody>
+
+    <main class="create-container">
+      <div class="main-header;", style="margin: 1em;">
+          <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
+          <h4>Participate:</h4>
+          <form class="participate">
+              <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
+              <input id="email" type="email" name="email" placeholder="Email">
+              <input type="checkbox">
+              <input type="checkbox">
+              <button type="button" class="add-row" value="add-row">Submit Availability</button>
+          </form>
+          <table class="table">
+            <thead>
               <tr>
-                <td></td>
-                <td></td>
-                <td><input type="checkbox"</td>
-                <td><input type="checkbox"</td>
-              </tr>
+                <th scope="col">Name</th>
+                <th scope="col" style="width: 30%">Option 1</th>
+                <th scope="col" style="width: 30%">Option 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
             </tbody>
-        </table>
+          </table>
     </main>
   </body>
 </html>
