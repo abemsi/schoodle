@@ -9,7 +9,12 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-
+const cookieSession = require('cookie-session');
+const { generateRandomString } = require('./helpers')
+// cookie-session
+app.use(cookieSession({
+  name: 'session',
+  keys: ["bloop"]}));
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
