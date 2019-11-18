@@ -64,21 +64,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("schoodles/:id", (req, res) => {
-   console.log(req.body)
-  let link = generateRandomString();
+app.post("/", (req, res) => {
+  //  console.log(req.body)
+  // let link = generateRandomString();
   // console.log(req.body)
-  res.render("schoodles");
+  res.redirect("schoodles");
 });
 
 /* GET/POST ROUTES TO PARTICIPATE IN SCHOODLE
 */
-app.get("/schoodles/:id", (req, res) => {
-  res.render("index");
+app.get("/schoodles", (req, res) => {
+  res.render("schoodles");
 });
 
-app.post("/schoodles/:id", (req, res) => {
-  res.render("index");
+app.post("/schoodles", (req, res) => {
+  res.render("schoodles");
 });
 
 /* PUT ROUTE TO UPDATE / EDIT SCHOODLE
