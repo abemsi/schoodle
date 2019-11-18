@@ -6,5 +6,9 @@
   margin-bottom: 20px;
 }
 
-
+.main-header #bouncingArrow {
+  margin-top: 10px;
+  animation: bounce 2s infinite;
+  text-align: center;
+}
 
