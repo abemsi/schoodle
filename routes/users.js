@@ -46,18 +46,16 @@ module.exports = (db) => {
         console.error(err);
       }) 
       res.redirect("/schoodles");
-      // WORK IN PROGRESS below
-        // let optionspayload = {...pollData, date, poll_id: pollData.id };
-        // db.addOptions(optionspayload, function (rows) {     
-        //  console.log('@@@@@@@@@@@@@@@@@@@@2', rows);
-        //   const newOption = rows[0];
-        //   if (!newOption) {
-        //     res.send({error: "error"});
-        //     return;
-        //   }
-        // })
-         
       
+        let optionspayload = {...pollData, poll_id: pollData.id };
+        db.addOptions(optionspayload, function (rows) {     
+         console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', rows);
+          const newOption = rows[0];
+          if (!newOption) {
+            res.send({error: "error"});
+            return;
+          }
+        })     
     });
   });
   return router;
