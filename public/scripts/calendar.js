@@ -15,7 +15,7 @@ $(document).ready(function () {
       ],
       action: function () {
           //get the selected date
-          var date = $('#' + this.id).data('date');
+          let date = $('#' + this.id).data('date');
           //alert the date
           $('#calendar-dates').val(date);
           alert('You clicked date: ' + date);
