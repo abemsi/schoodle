@@ -42,8 +42,11 @@ module.exports = (db) => {
           res.send({error: "error"});
           return;
         }
-        res.redirect("/schoodles");
-        // WORK IN PROGRESS below
+      }).catch(err => {
+        console.error(err);
+      }) 
+      res.redirect("/schoodles");
+      // WORK IN PROGRESS below
         // let optionspayload = {...pollData, date, poll_id: pollData.id };
         // db.addOptions(optionspayload, function (rows) {     
         //  console.log('@@@@@@@@@@@@@@@@@@@@2', rows);
@@ -53,9 +56,8 @@ module.exports = (db) => {
         //     return;
         //   }
         // })
-      }).catch(err => {
-        console.error(err);
-      }) 
+         
+      
     });
   });
   return router;
