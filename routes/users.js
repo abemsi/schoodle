@@ -28,31 +28,34 @@ module.exports = (db) => {
     const pollData = req.body;
     db.addUser(pollData, function (rows) {     
      const newUser = rows[0];
-        if (!newUser) {
-          res.send({error: "error"});
-          return;
-        }
-        req.session.user_id = newUser.id;
-        let pollpayload = {...pollData, organizer_id: pollData.id };
-      db.addPoll(pollpayload, function (rows) {     
-        console.log(rows[0] + 'hello')
+      if (!newUser) {
+        res.send({error: "error"});
+        return;
+      }
+      req.session.user_id = newUser.id;
+      let pollpayload = {...pollData, organizer_id: pollData.id };
+      console.log(rows[0] + 'hello')
+      
+      db.addPoll(pollpayload).then(function (rows) {     
         const newPoll = rows[0];
         if (!newPoll) {
           res.send({error: "error"});
           return;
         }
+        res.redirect("/schoodles");
         // WORK IN PROGRESS below
-        let optionspayload = {...pollData, date, poll_id: pollData.id };
-        db.addOptions(optionspayload, function (rows) {     
-          console.log(rows);
-          const newOption = rows[0];
-          if (!newOption) {
-            res.send({error: "error"});
-            return;
-          }
-        res.redirect('/schoodles');
-        })
-      })
+        // let optionspayload = {...pollData, date, poll_id: pollData.id };
+        // db.addOptions(optionspayload, function (rows) {     
+        //  console.log('@@@@@@@@@@@@@@@@@@@@2', rows);
+        //   const newOption = rows[0];
+        //   if (!newOption) {
+        //     res.send({error: "error"});
+        //     return;
+        //   }
+        // })
+      }).catch(err => {
+        console.error(err);
+      }) 
     });
   });
   return router;
