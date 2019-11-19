@@ -51,26 +51,27 @@
       <div class="main-header;", style="margin: 1em;">
           <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
           <h4>Participate:</h4>
-          <form class="participate">
-              <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
-              <input id="email" type="email" name="email" placeholder="Email">
-              <input type="checkbox">
-              <input type="checkbox">
-              <button type="button" class="add-row" value="add-row">Submit Availability</button>
-          </form>
+
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Name</th>
+                <th scope="col">Name/Email</th>
                 <th scope="col" style="width: 30%">Option 1</th>
                 <th scope="col" style="width: 30%">Option 2</th>
+                <th scope="col" style="width: 30%">Submit</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <form class="participate">
+                    <td>
+                      <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
+                      <input id="email" type="email" name="email" placeholder="Email">
+                    </td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><button type="button" class="add-row" value="add-row">Submit Availability</button></td>
+                  </form>
                 </tr>
             </tbody>
           </table>
