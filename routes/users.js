@@ -9,34 +9,51 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-    console.log('working')
-    .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(404)
-          .json({ error: err.message });
-      });
-  });
   
+  // router.get("/", (req, res) => {
+  
+  //   db.queryFunk(`SELECT * FROM users;`)
+  //   .then(data => {
+  //       const users = data.rows;
+  //       res.json({ users });
+  //     })
+  //     .catch(err => {
+  //       res
+  //         .status(404)
+  //         .json({ error: err.message })
+  //     });
+  // });
+
   router.post("/", (req, res) => {
-    const user = req.body;
-    console.log('MADE POST TO DATABASE')
-    database.addUser(user)
-    .then(user => {
-      if (!user) {
-        res.send({error: "error"});
-        return;
-      }
-      req.session.user_id = user.id;
-      res.send("🤗");
-    })
-    .catch(e => res.send(e));
+    const pollData = req.body;
+    db.addUser(pollData, function (rows) {     
+     const newUser = rows[0];
+        if (!newUser) {
+          res.send({error: "error"});
+          return;
+        }
+        req.session.user_id = newUser.id;
+        let pollpayload = {...pollData, organizer_id: pollData.id };
+      db.addPoll(pollpayload, function (rows) {     
+        console.log(rows[0] + 'hello')
+        const newPoll = rows[0];
+        if (!newPoll) {
+          res.send({error: "error"});
+          return;
+        }
+        // WORK IN PROGRESS below
+        let optionspayload = {...pollData, date, poll_id: pollData.id };
+        db.addOptions(optionspayload, function (rows) {     
+          console.log(rows);
+          const newOption = rows[0];
+          if (!newOption) {
+            res.send({error: "error"});
+            return;
+          }
+        res.redirect('/schoodles');
+        })
+      })
+    });
   });
-  
   return router;
-};
+ };
