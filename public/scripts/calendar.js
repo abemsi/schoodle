@@ -1,32 +1,37 @@
 $(document).ready(function () {
 
-
+    let dates = [
+      {
+          'date': '2019-11-11',
+          'badge': true,
+          'title': 'Meeting with John'
+      },
+      {
+          'date': '2019-11-13',
+          'badge': false,
+          'title': 'Go to market'
+      },
+      {
+        'date': '2019-11-15',
+        'badge': false,
+        'title': 'Go to market'
+      }
+  ];
     $('#my-calendar').zabuto_calendar({
       language: 'en',
-      data: [
-          {
-              'date': '2019-11-11',
-              'badge': true,
-              'title': 'Meeting with John'
-          },
-          {
-              'date': '2019-11-13',
-              'badge': false,
-              'title': 'Go to market'
-          }
-      ],
-      action: function () {
+      data: dates,
+      action: function (data) {
           //get the selected date
           var date = $('#' + this.id).data('date');
           //alert the date
-          $('#calendar-dates').val(date);
-          console.log('You clicked date: ' + date);
-        },
-
-      eventClick: function(date) {
-       
-      }
+          myFunction(dates, date);
+        }
+        
   });
+  let myFunction = function (data, date) {
+    console.log(data);
+    data.push({'date': date, 'badge': false, 'title': 'test'});
+  };
 });
 
 
