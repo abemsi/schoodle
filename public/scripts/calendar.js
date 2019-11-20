@@ -1,35 +1,17 @@
 $(document).ready(function () {
-
-    let dates = [
-      // {
-      // //     'date': '2019-11-11',
-      // //     'badge': true,
-      // //     'title': 'Meeting with John'
-      // // },
-      // // {
-      // //     'date': '2019-11-13',
-      // //     'badge': false,
-      // //     'title': 'Go to market'
-      // // },
-      // // {
-      // //   'date': '2019-11-15',
-      // //   'badge': false,
-      // //   'title': 'Go to market'
-      // }
-  ];
+  
+    let dates = [];
     $('#my-calendar').zabuto_calendar({
       language: 'en',
       data: dates,
       action: function (data) {
-          //get the selected date
-          var date = $('#' + this.id).data('date');
-          //alert the date
-          myFunction(dates, date, this);
-        }
-
+        //get the selected date
+        let date = $('#' + this.id).data('date');
+        //alert the date
+        myFunction(dates, date, this);
+      }
   });
   let myFunction = function (data, date, dayElement) {
-    console.log(data);
     
     let removeIndex = dates.findIndex(item => item.date === date);
     if (dayElement.classList.contains('event')) {
@@ -47,6 +29,14 @@ $(document).ready(function () {
         let b = [];
         b = (justDates.filter(Boolean))
         $("#calendar-dates").val(b);
+        
+        const generateRandomString = function() {
+          let random = Math.random().toString(36).substring(2);
+          return random += random;
+          }
+      
+        let link = generateRandomString();
+        $("#link").val(link)
       });     
     }
   };
