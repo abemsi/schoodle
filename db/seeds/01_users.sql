@@ -16,19 +16,19 @@ VALUES ('Denise', 'youlookshitty@gmail.com');
 
 -- Polls table seeds
 INSERT INTO polls (title, description, location, organizer_id)
-VALUE ('Birthday BONANZA', 'description', "Mom's Basement", 1);
+VALUES ('Birthday BONANZA', 'description', 'Mom Basement', 1);
 
 INSERT INTO polls (title, description, location, organizer_id)
-VALUE ('Offical Work Meeting', 'description', "Mcdonalds", 2);
+VALUES ('Offical Work Meeting', 'description', 'Mcdonalds', 2);
 
 INSERT INTO polls (title, description, location, organizer_id)
-VALUE ('Badminton Practice', 'description', "The gym, duh", 3);
+VALUES ('Badminton Practice', 'description', 'The gym, duh', 3);
 
 INSERT INTO polls (title, description, location, organizer_id)
-VALUE ('Schoodle Opening Day', 'description', 'World Wide', 4);
+VALUES ('Schoodle Opening Day', 'description', 'World Wide', 4);
 
 INSERT INTO polls (title, description, location, organizer_id)
-VALUE ('Group Midterm Project', 'description', "Lighthouse Labs", 5);
+VALUES ('Group Midterm Project', 'description', 'Lighthouse Labs', 5);
 
 -- Options table seeds
 INSERT INTO options (date, poll_id)
