@@ -16,7 +16,7 @@ CREATE TABLE polls (
   title VARCHAR(255) NOT NULL,
   description TEXT,
   location VARCHAR(255),
-  link VARCHAR(500)
+  link VARCHAR(500),
   organizer_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
