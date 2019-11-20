@@ -34,7 +34,7 @@ module.exports = (db) => {
       }
       req.session.user_id = newUser.id;
       let pollpayload = {...pollData, organizer_id: pollData.id };
-      console.log(rows[0] + 'hello')
+      // console.log(rows[0] + 'hello')
       
       db.addPoll(pollpayload).then(function (rows) {     
         const newPoll = rows[0];
@@ -53,7 +53,6 @@ module.exports = (db) => {
              console.log('An error occurred: ', err.message);
              return;
          }
-         
           const newOption = rows[0];
           console.log('BWAAAAAA', newOption)
         // do whatever you need to do with the newOption

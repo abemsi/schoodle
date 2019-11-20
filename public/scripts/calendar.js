@@ -30,13 +30,26 @@ $(document).ready(function () {
   });
   let myFunction = function (data, date, dayElement) {
     console.log(data);
+    
     let removeIndex = dates.findIndex(item => item.date === date);
     if (dayElement.classList.contains('event')) {
       $(dayElement).removeClass('event');
       dates.splice(removeIndex, 1);
     } else {
-      data.push({'date': date, 'badge': false, 'title': 'test'});
+      data.push({'date': date, 'badge': false});
       $(dayElement).addClass('event');
+      
+      let justDates = [];
+      $.each(data, function (i, item) {
+        console.log("Dates in object " + i + ":");
+        $.each(item, function(key, value) {
+          justDates.push(value);
+        });     
+      });
+      let b = justDates.filter(Boolean);    
+      let c = Object.values(b);
+      console.log(c);
+      $("#calendar-dates").val(c);
     }
   };
 });
