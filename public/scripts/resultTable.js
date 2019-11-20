@@ -7,6 +7,5 @@ $(document).ready(function() {
     let markup = "<tr><td>" + name + " " + email + "</td>" + "<td></td>" + "<td></td>" + "<td></td>";
     $("table tbody").append(markup);
   });
-
 });
 
