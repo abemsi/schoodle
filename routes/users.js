@@ -48,14 +48,16 @@ module.exports = (db) => {
       res.redirect("/schoodles");
       
         let optionspayload = {...pollData, poll_id: pollData.id };
-        db.addOptions(optionspayload, function (rows) {     
-         console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', rows);
+        db.addOption(optionspayload, function (err, result) {     
+          if (err) {
+             console.log('An error occurred: ', err.message);
+             return;
+         }
+         
           const newOption = rows[0];
-          if (!newOption) {
-            res.send({error: "error"});
-            return;
-          }
-        })     
+          console.log('BWAAAAAA', newOption)
+        // do whatever you need to do with the newOption
+        })      
     });
   });
   return router;
