@@ -64,8 +64,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/", (req, res) => {
-  // let link = generateRandomString();
+app.post("/", (req, res) => {  
   res.redirect("schoodles");
 });
 
