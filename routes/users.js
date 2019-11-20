@@ -26,6 +26,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const pollData = req.body;
+    console.log(pollData)
     db.addUser(pollData, function (rows) {     
      const newUser = rows[0];
       if (!newUser) {
@@ -33,7 +34,7 @@ module.exports = (db) => {
         return;
       }
       req.session.user_id = newUser.id;
-      let pollpayload = {...pollData, organizer_id: pollData.id };
+      let pollpayload = {...pollData, organizer_id: newUser.id };
       // console.log(rows[0] + 'hello')
       
       db.addPoll(pollpayload).then(function (rows) {     
@@ -42,21 +43,27 @@ module.exports = (db) => {
           res.send({error: "error"});
           return;
         }
+
+        const calendarDates = pollData['calendar-dates'].split(',')
+        calendarDates.map(function(date) {
+          let optionspayload = {calendarDate: date, poll_id: newPoll.id }
+          db.addOption(optionspayload, function (err, results) {     
+            if (err) {
+               console.log('An error occurred: ', err.message);
+               return;
+           }
+            const newOption = results[0];
+            console.log('BWAAAAAA', newOption)
+          // do whatever you need to do with the newOption
+          })      
+        })      
+
       }).catch(err => {
         console.error(err);
       }) 
       res.redirect("/schoodles");
       
-        let optionspayload = {...pollData, poll_id: pollData.id };
-        db.addOption(optionspayload, function (err, result) {     
-          if (err) {
-             console.log('An error occurred: ', err.message);
-             return;
-         }
-          const newOption = rows[0];
-          console.log('BWAAAAAA', newOption)
-        // do whatever you need to do with the newOption
-        })      
+         
     });
   });
   return router;
