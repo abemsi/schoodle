@@ -41,21 +41,13 @@ $(document).ready(function () {
       
       let justDates = [];
       $.each(data, function (i, item) {
-        console.log("Dates in object " + i + ":");
         $.each(item, function(key, value) {
-          justDates.push(value);
-          
+          justDates.push(value);        
         });
         let b = [];
         b = (justDates.filter(Boolean))
-        console.log('b', b);
         $("#calendar-dates").val(b);
-      });
-      // console.log(justDates);
-      
-      // console.log(c);
-      // console.log(c);
-      
+      });     
     }
   };
 });
