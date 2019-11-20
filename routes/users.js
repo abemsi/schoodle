@@ -33,13 +33,13 @@ module.exports = (db) => {
           let optionspayload = {calendarDate: date, poll_id: newPoll.id }
           db.addOption(optionspayload, function (err, results) {     
             if (err) {
-               console.error(err.message);
-               return;
-              };
-            });     
-          })      
-        }).catch(err => {
-         console.error(err);
+              console.error(err.message);
+              return;
+            };
+          });     
+        })      
+      }).catch(err => {
+        console.error(err);
       }) 
       res.redirect("/schoodles");       
     });
