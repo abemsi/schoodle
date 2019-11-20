@@ -44,12 +44,18 @@ $(document).ready(function () {
         console.log("Dates in object " + i + ":");
         $.each(item, function(key, value) {
           justDates.push(value);
-        });     
+          
+        });
+        let b = [];
+        b = (justDates.filter(Boolean))
+        console.log('b', b);
+        $("#calendar-dates").val(b);
       });
-      let b = justDates.filter(Boolean);    
-      let c = Object.values(b);
-      console.log(c);
-      $("#calendar-dates").val(c);
+      // console.log(justDates);
+      
+      // console.log(c);
+      // console.log(c);
+      
     }
   };
 });
