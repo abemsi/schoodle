@@ -16,7 +16,7 @@ VALUES ('Denise', 'youlookshitty@gmail.com');
 
 -- Polls table seeds
 INSERT INTO polls (title, description, location, organizer_id, link)
-VALUES ('Birthday BONANZA', 'description', 'Mom Basement', 1, '6nnqe248p6k6nnqe248p6k');
+VALUES ('Birthday BONANZA', 'description', 'Mom Basement', 1);
 
 INSERT INTO polls (title, description, location, organizer_id)
 VALUES ('Offical Work Meeting', 'description', 'Mcdonalds', 2);
@@ -66,15 +66,7 @@ VALUES ('2019-11-24', 5);
 INSERT INTO options (date, poll_id)
 VALUES ('2019-11-25', 5);
 
--- Choices table seeds
-INSERT INTO choices (option_id, attendee_id, poll_id)
-VALUES (1, 2, 6);
-INSERT INTO choices (option_id, attendee_id, poll_id)
-VALUES (2, 2, 6);
-INSERT INTO choices (option_id, attendee_id, poll_id)
-VALUES (1, 1, 6);
-INSERT INTO choices (option_id, attendee_id, poll_id)
-VALUES (2, 1, 6);
+-- Choices table see
 
 INSERT INTO choices (option_id, attendee_id, poll_id)
 VALUES (1, 2, 2);
@@ -103,6 +95,8 @@ INSERT INTO choices (option_id, attendee_id, poll_id)
 VALUES (1, 1, 5);
 INSERT INTO choices (option_id, attendee_id, poll_id)
 VALUES (1, 3, 5);
+
+
 
 
 
