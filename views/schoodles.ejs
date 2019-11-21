@@ -84,7 +84,7 @@
                   </tr>
                   <% } %>
                 <tr>
-                  <form class="participate">
+                  <form method="POST" class="participate" action="/api/users">
                     <td>
                       <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
                       <input id="email" type="email" name="email" placeholder="Email">
@@ -94,7 +94,7 @@
                   </tr>
                 </tbody>
               </table>
-              <td><button type="button" class="add-row" value="add-row">Submit Availability</button></td>
+              <td><button type="submit" class="add-row" value="add-row">Submit Availability</button></td>
             </form>
     </main>
   </body>
