@@ -41,7 +41,7 @@ module.exports = (db) => {
       }).catch(err => {
         console.error(err);
       }) 
-      res.redirect("/schoodles");       
+      res.redirect(`/schoodles/${pollData.link}`);       
     });
   });
   return router;
