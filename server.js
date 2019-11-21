@@ -64,27 +64,25 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/", (req, res) => {  
-  res.redirect("schoodles");
-});
+// app.post("/", (req, res) => {  
+//   res.redirect("schoodles");
+// });
 
-/* GET/POST ROUTES TO PARTICIPATE IN SCHOODLE
-*/
 app.get("/schoodles/:link", (req, res) => {
   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
-    console.log('heyyyyyyyyy', pollInfo)
+    // console.log(pollInfo)
     res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
   })
-  
 });
 
-app.post("/schoodles/:link", (req, res) => {
-  console.log(req.body)
-  res.render("schoodles");
-});
+// app.post("/api/widgets", (req, res) => {
+//   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
+ 
+//   console.log('post request on new page here @@@@@@@@@', req.body);
+//   res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+//   })
+// });
 
-/* PUT ROUTE TO UPDATE / EDIT SCHOODLE
-*/
 app.put("/schoodles/:id", (req, res) => {
   res.render("index");
 });
