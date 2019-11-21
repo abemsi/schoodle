@@ -70,11 +70,15 @@ app.post("/", (req, res) => {
 
 /* GET/POST ROUTES TO PARTICIPATE IN SCHOODLE
 */
-app.get("/schoodles", (req, res) => {
-  res.render("schoodles");
+app.get("/schoodles/:link", (req, res) => {
+  db.getAllPollInformation(req.params.link).then( function(pollInfo) {
+    console.log('heyyyyyyyyy', pollInfo)
+    res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+  })
+  
 });
 
-app.post("/schoodles", (req, res) => {
+app.post("/schoodles/:link", (req, res) => {
   console.log(req.body)
   res.render("schoodles");
 });
