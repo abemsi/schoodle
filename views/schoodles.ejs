@@ -55,11 +55,29 @@
             <thead>
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col" style="width: 30%">Option 1</th>
-                <th scope="col" style="width: 30%">Option 2</th>
-                <th></th>
+                <% for(let option of options){%>
+                  <th scope="col" style="width: <%= 100/options.length %>">
+                    <%= option.date %>
+                  </th>
+                <% } %>
+      
+  
               </tr>
-
+              </thead>
+              <tbody>
+                <% for(let result of results){%> 
+                  <tr>
+                     <td>
+                       <%= name %>
+                     </td>
+                     <% for(let option of options){%>
+                      <td>
+                        <input type="checkbox" checked >
+                      </td>
+                    <% } %>
+                  </tr>
+                  <% } %>
+                <tr>
                   <form class="participate">
                     <td>
                       <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
