@@ -75,13 +75,13 @@ app.get("/schoodles/:link", (req, res) => {
   })
 });
 
-// app.post("/api/widgets", (req, res) => {
-//   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
+app.post("/api/widgets", (req, res) => {
+  db.getAllPollInformation(req.params.link).then( function(pollInfo) {
  
-//   console.log('post request on new page here @@@@@@@@@', req.body);
-//   res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
-//   })
-// });
+  console.log('post request on new page here @@@@@@@@@', req.body);
+  res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+  })
+});
 
 app.put("/schoodles/:id", (req, res) => {
   res.render("index");
