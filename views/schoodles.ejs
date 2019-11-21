@@ -56,6 +56,7 @@
           <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
           <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
           <h4>Participate:</h4>
+          <form method="POST" class="participate" action="/api/users" id="new"></form>
           <table class="table">
             <thead>
               <tr>
@@ -77,25 +78,27 @@
                        <%= name %>
                      </td>
                      <% for(let option of options){%>
-                      <td>
-                        <input type="checkbox" checked >
+                      <td style="width: <%= 100/options.length %>">
+                        amy
+                        <!-- <input type="checkbox" checked> -->
                       </td>
                     <% } %>
                   </tr>
                   <% } %>
                 <tr>
-                  <form method="POST" class="participate" action="/api/users">
-                    <td>
-                      <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
-                      <input id="email" type="email" name="email" placeholder="Email">
+                  <td>
+                      <input form="new" id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em">
+                      <input form="new" id="email" type="email" name="email" placeholder="Email">
+                  </td>
+                  <% for(let option of options){%>
+                    <td style="width: <%= 100/options.length %>">
+                      <input form="new" name="choices[]" type="checkbox" >
                     </td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
+                  <% } %>
                   </tr>
                 </tbody>
               </table>
-              <td><button type="submit" class="add-row" value="add-row">Submit Availability</button></td>
-            </form>
+              <button form="new" type="submit" class="add-row" value="add-row">Submit Availability</button></td>
     </main>
   </body>
 </html>
