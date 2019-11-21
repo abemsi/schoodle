@@ -50,7 +50,15 @@
     <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
     <main class="create-container">
 
+
       <div class="main-header;", style="margin: 1em;">
+
+        <div id="invite">
+          <h1>Invite Participants</h1>
+          <p>Everyone with the link an vote - no account required.</p>
+
+          <input type="text" id="copyText" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction()">Copy</button>
+        </div>
 
           <p><h1><%= options[0].title %></h1></p>
           <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
@@ -81,8 +89,7 @@
                      </td>
                      <% for(let option of options){%>
                       <td style="width: <%= 100/options.length %>">
-                        amy
-                        <!-- <input type="checkbox" checked> -->
+                        <input form="new" name="choices[]" type="checkbox" checked=<%= result.choices.includes(option.date) %>
                       </td>
                     <% } %>
                   </tr>
@@ -93,6 +100,7 @@
                       <input form="new" id="email" type="email" name="email" placeholder="Email">
                   </td>
                   <% for(let option of options){%>
+
                     <td style="width: <%= 100/options.length %>">
                       <input form="new" name="choices[<%= option.date %>]" type="checkbox" >
                     </td>
@@ -100,7 +108,7 @@
                   </tr>
                 </tbody>
               </table>
-              <button form="new" type="submit" class="add-row" value="add-row">Submit Availability</button></td>
+              <button form="new" type="submit">Submit Availability</button></td>
     </main>
   </body>
 </html>
