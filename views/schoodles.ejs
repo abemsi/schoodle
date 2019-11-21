@@ -47,15 +47,21 @@
     </nav>
 
 
+    <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
     <main class="create-container">
+
       <div class="main-header;", style="margin: 1em;">
-          <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
+
+          <p><h1><%= options[0].title %></h1></p>
+          <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
+          <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
           <h4>Participate:</h4>
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">Name</th>
                 <% for(let option of options){%>
+
                   <th scope="col" style="width: <%= 100/options.length %>">
                     <%= option.date %>
                   </th>
