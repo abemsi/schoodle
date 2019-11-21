@@ -71,7 +71,8 @@ app.get("/", (req, res) => {
 app.get("/schoodles/:link", (req, res) => {
   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
     // console.log(pollInfo)
-    res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+    const pollId = pollInfo.options[0].poll_id;
+    res.render("schoodles", { results: pollInfo.results, pollId, options: pollInfo.options });
   })
 });
 

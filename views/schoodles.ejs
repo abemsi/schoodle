@@ -56,7 +56,9 @@
           <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
           <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
           <h4>Participate:</h4>
-          <form method="POST" class="participate" action="/api/widgets" id="new"></form>
+          <form method="POST" class="participate" action="/api/widgets" id="new">
+            <input type="text" name="pollId" hidden value="<%= pollId %>">
+          </form>
           <table class="table">
             <thead>
               <tr>
@@ -92,7 +94,7 @@
                   </td>
                   <% for(let option of options){%>
                     <td style="width: <%= 100/options.length %>">
-                      <input form="new" name="choices[]" type="checkbox" >
+                      <input form="new" name="choices[<%= option.date %>]" type="checkbox" >
                     </td>
                   <% } %>
                   </tr>

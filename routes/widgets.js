@@ -14,13 +14,12 @@ module.exports = (db) => {
     const choiceData = req.body;
     console.log('reqbody in widgets :', choiceData)
   
-    // db.addUser(choiceData, function (rows) {     
-    //   const newUser = rows[0];
-    //     if (!newUser) {
-    //     res.send({error: "error"});
-    //     return;
-    //    }
-    
+    db.addAttendee(choiceData).then(function(attendee) {
+      choiceData.choices.map(option_id => {
+        return addChoice(option_id, attendeeId, user.pollId)
+      })
+    })
+  
     db.addChoice(choiceData).then(function (rows) {     
       const newChoice = rows[0];
       if (!newChoice) {
@@ -29,8 +28,7 @@ module.exports = (db) => {
       };
     }).catch(err => {
       console.error(err);
-    // });
-  });
+    });
   })
   return router;
-};
+}
