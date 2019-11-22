@@ -15,17 +15,14 @@ module.exports = (db) => {
     console.log('reqbody in widgets :', choiceData)
   
     db.addAttendee(choiceData).then(function(attendee) {
-      choiceData.choices.map(option_id => {
-        return addChoice(option_id, attendeeId, user.pollId)
+      const choicesObj = req.body.choices;
+      return Object.keys(choicesObj)
+      .filter(id => choicesObj[id] === 'on')
+      .map(option_id => {
+        return db.addChoice(option_id, attendee.id, choiceData.pollId)
       })
-    })
-  
-    db.addChoice(choiceData).then(function (rows) {     
-      const newChoice = rows[0];
-      if (!newChoice) {
-        res.send({error: "error"});
-      return;
-      };
+    }).then(() => {
+      res.redirect(`/schoodles/${choiceData.link}`)
     }).catch(err => {
       console.error(err);
     });
