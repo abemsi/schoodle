@@ -65,9 +65,14 @@
           <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
           <h4>What days are you available?:</h4>
 
-          <form method="POST" class="participate" action="/api/widgets" id="new"></form>
+          <form method="POST" class="participate" action="/api/widgets" id="new">
+            <input type="text" name="pollId" hidden value="<%= pollId %>">
+            <input type="text" name="link" hidden value="<%= link %>">
+          </form>
+                   
           <div class="tableDiv">
             <table class="table">
+
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -89,7 +94,7 @@
                      </td>
                      <% for(let option of options){%>
                       <td style="width: <%= 100/options.length %>">
-                        <input form="new" name="choices[]" type="checkbox" checked=<%= result.choices.includes(option.date) %>
+                        <input form="new" type="checkbox" checked=<%= result.choices.includes(option.date) %>
                       </td>
                     <% } %>
                   </tr>
@@ -99,10 +104,9 @@
                       <input form="new" id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em; width: 90%;">
                       <input form="new" id="email" type="email" name="email" placeholder="Email" style="width: 90%;">
                   </td>
-                  <% for(let option of options){%>
-
+                  <% for(const option of options){%>
                     <td style="width: <%= 100/options.length %>">
-                      <input form="new" name="choices[]" type="checkbox" >
+                      <input form="new" name="choices[<%= option.id %>]" type="checkbox" >
                     </td>
                   <% } %>
                   </tr>

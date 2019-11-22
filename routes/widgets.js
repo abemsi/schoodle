@@ -14,23 +14,18 @@ module.exports = (db) => {
     const choiceData = req.body;
     console.log('reqbody in widgets :', choiceData)
   
-    // db.addUser(choiceData, function (rows) {     
-    //   const newUser = rows[0];
-    //     if (!newUser) {
-    //     res.send({error: "error"});
-    //     return;
-    //    }
-    
-    db.addChoice(choiceData).then(function (rows) {     
-      const newChoice = rows[0];
-      if (!newChoice) {
-        res.send({error: "error"});
-      return;
-      };
+    db.addAttendee(choiceData).then(function(attendee) {
+      const choicesObj = req.body.choices;
+      return Object.keys(choicesObj)
+      .filter(id => choicesObj[id] === 'on')
+      .map(option_id => {
+        return db.addChoice(option_id, attendee.id, choiceData.pollId)
+      })
+    }).then(() => {
+      res.redirect(`/schoodles/${choiceData.link}`)
     }).catch(err => {
       console.error(err);
-    // });
-  });
+    });
   })
   return router;
-};
+}

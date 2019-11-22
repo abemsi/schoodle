@@ -70,18 +70,24 @@ app.get("/", (req, res) => {
 
 app.get("/schoodles/:link", (req, res) => {
   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
-    // console.log(pollInfo)
-    res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+    console.log('dfghjghjk', pollInfo)
+    const pollId = pollInfo.options[0] && pollInfo.options[0].poll_id;
+    if(pollId) {
+      res.render("schoodles", { results: pollInfo.results, link: req.params.link, pollId, options: pollInfo.options });
+    } else {
+      res.status(400).send('Bad request')
+    }
+    
   })
 });
 
-app.post("/api/widgets", (req, res) => {
-  db.getAllPollInformation(req.params.link).then( function(pollInfo) {
+// app.post("/api/widgets", (req, res) => {
+//   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
  
-  console.log('post request on new page here @@@@@@@@@', req.body);
-  res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
-  })
-});
+//   console.log('post request on new page here @@@@@@@@@', req.body);
+//   res.render("schoodles", { results: pollInfo.results, options: pollInfo.options });
+//   })
+// });
 
 app.put("/schoodles/:id", (req, res) => {
   res.render("index");
