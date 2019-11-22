@@ -76,7 +76,8 @@
                       
                       <% for(let option of options){%>
                       <td style="width: <%= 100/options.length %>;">
-                        <input id="checkbox" type="checkbox" checked="<%= result.choices.includes(option.id) %>">
+                        <% const checked = result.choices.includes(option.id) ? "checked" : "" %>
+                        <input id="checkbox" type="checkbox" <%= checked %> >
                       </td>
                     <% } %>
                   </tr>
