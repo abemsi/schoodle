@@ -36,13 +36,14 @@
     <nav>
       <span class="logo">
        <strong>SCHOODLE</strong>
+       <img src="/styles/images/fox.png" width=50 id="fox">
       </span>
     </nav>
     <div id="invite">
-        <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
+        <h3>YOU'VE BEEN INVITED TO A SCHOODLE !</h3>
       <h1>Invite Participants</h1>
-      <p>Everyone with the link can vote - no account required 😎</p>
-      <input type="text" id="copyText" style="width: 55%;" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction();">Copy</button>
+      <input type="text" id="copyText" style="width: 55%;" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button id="copyButt" onclick="myFunction();">Copy</button>
+      <p>Everyone with the link can vote - no account required </p> <img src="/styles/images/fox.png" width=35 id="foxy">
     </div>
     <main class="create-container">
       <div style="margin: 1em;">
@@ -73,26 +74,26 @@
                       </td>
                       <% for(let option of options){%>
                       <td style="width: <%= 100/options.length %>;">
-                        <input type="checkbox" checked="<%= result.choices.includes(option.date) %>">
+                        <input id="checkbox" type="checkbox" checked="<%= result.choices.includes(option.date) %>">
                       </td>
                     <% } %>
                   </tr>
                   <% } %>
                 <tr>
                   <td>
-                      <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em; width: 90%;">
-                      <input id="email" type="email" name="email" placeholder="Email" style="width: 90%;">
+                      <input id="name" type="text" name="name" placeholder="  Name" style="margin-bottom: .5em; width: 90%;">
+                      <input id="email" type="email" name="email" placeholder="  Email" style="width: 90%;">
                   </td>
                   <% for(const option of options){%>
                     <td style="width: <%= 100/options.length %>;">
-                      <input name="choices[<%= option.id %>]" type="checkbox">
+                      <input name="choices[<%= option.id %>]" type="checkbox" id="checkbox">
                     </td>
                   <% } %>
                   </tr>
                 </tbody>
               </table>
           </div>
-          <button type="submit" action="/api/widgets">Submit Availability</button>
+          <button id="submitAvail" type="submit" action="/api/widgets">Submit Availability</button>
           <div class="isa_error">
             <i class="fa fa-times-circle"></i>
              A checkbox must be clicked
