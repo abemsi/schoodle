@@ -25,9 +25,7 @@ module.exports = (db) => {
         res.status(420).send('No checkbox was marked')
         return;
       }
-      return Object.keys(choicesObj)
-      .filter(id => choicesObj[id] === 'on')
-      .map(option_id => {
+      return choicesObj.map(option_id => {
         return db.addChoice(option_id, attendee.id, choiceData.pollId)
       })
     }).catch(err => {

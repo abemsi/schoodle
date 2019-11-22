@@ -36,7 +36,7 @@
     <nav>
       <span class="logo">
        <strong>SCHOODLE</strong>
-       <img src="/styles/images/fox.png" width=50 id="fox">
+       <a href="/"><img src="/styles/images/fox.png" width=50 id="fox"></a>
       </span>
     </nav>
     <div id="invite">
@@ -51,9 +51,10 @@
         <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
         <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
         <h4>What days are you available?:</h4>
-        <form method="POST" class="participate" action="/api/widgets">
+        <form id="new" method="POST" class="participate" action="/api/widgets">
           <input type="text" name="pollId" hidden value="<%= pollId %>">
           <input type="text" name="link" hidden value="<%= link %>">
+        </form>
           <div class="tableDiv">
             <table class="table">
             <thead>
@@ -70,35 +71,36 @@
                 <% for(let result of results){%>
                   <tr>
                       <td>
-                        <%= name %>
+                        <%= result.name %>
                       </td>
+                      
                       <% for(let option of options){%>
                       <td style="width: <%= 100/options.length %>;">
-                        <input id="checkbox" type="checkbox" checked="<%= result.choices.includes(option.date) %>">
+                        <input id="checkbox" type="checkbox" checked="<%= result.choices.includes(option.id) %>">
                       </td>
                     <% } %>
                   </tr>
                   <% } %>
                 <tr>
                   <td>
-                      <input id="name" type="text" name="name" placeholder="  Name" style="margin-bottom: .5em; width: 90%;">
-                      <input id="email" type="email" name="email" placeholder="  Email" style="width: 90%;">
+                      <input form="new" id="name" type="text" name="name" placeholder="  Name" style="margin-bottom: .5em; width: 90%;">
+                      <input form="new" id="email" type="email" name="email" placeholder="  Email" style="width: 90%;">
                   </td>
                   <% for(const option of options){%>
                     <td style="width: <%= 100/options.length %>;">
-                      <input name="choices[<%= option.id %>]" type="checkbox" id="checkbox">
+                      <!-- <input form="new" name="choices[<%= option.id %>]" type="checkbox" id="checkbox"> -->
+                      <input form="new" name="choices[]" value="<%= option.id %>" type="checkbox" id="checkbox">
                     </td>
                   <% } %>
                   </tr>
                 </tbody>
               </table>
           </div>
-          <button id="submitAvail" type="submit" action="/api/widgets">Submit Availability</button>
+          <button form="new" id="submitAvail" type="submit" action="/api/widgets">Submit Availability</button>
           <div class="isa_error">
             <i class="fa fa-times-circle"></i>
              A checkbox must be clicked
           </div>
-        </form>
       </div>
     </main>
   </body>
