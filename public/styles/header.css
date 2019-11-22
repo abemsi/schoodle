@@ -1,14 +1,19 @@
 .main-header {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 40px;
   font-size: 10mm;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .main-header #bouncingArrow {
   margin-top: 10px;
   animation: bounce 2s infinite;
   text-align: center;
+  opacity: 0.9;
 }
 
+#fox {
+  margin-left: 10px;
+}
