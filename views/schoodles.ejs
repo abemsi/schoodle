@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <title>Participate Page</title>
-
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
@@ -16,12 +13,9 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/table.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/vendor/zabuto_calendar.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/calendar.js"></script>
@@ -33,87 +27,72 @@
         console.log(jQuery)
           $("#my-calendar").zabuto_calendar({language: "en"});
       });
-
   </script>
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
   </head>
-
   <body>
-
     <nav>
       <span class="logo">
        <strong>SCHOODLE</strong>
       </span>
     </nav>
-
-
     <div id="invite">
         <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
       <h1>Invite Participants</h1>
-      <p>Everyone with the link can vote - no account required 😎</p>
-
-      <input type="text" id="copyText" style="width: 55%" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction()">Copy</button>
+      <p>Everyone with the link an vote - no account required 😎</p>
+      <input type="text" id="copyText" style="width: 55%;" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction();">Copy</button>
     </div>
     <main class="create-container">
-
-
-      <div class="main-header;", style="margin: 1em;">
-
-
-          <p><h1><%= options[0].title %></h1></p>
-          <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
-          <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
-          <h4>What days are you available?:</h4>
-
-          <form method="POST" class="participate" action="/api/widgets" id="new">
-            <input type="text" name="pollId" hidden value="<%= pollId %>">
-            <input type="text" name="link" hidden value="<%= link %>">
-          </form>
-
+      <div style="margin: 1em;">
+        <p><h1><%= options[0].title %></h1></p>
+        <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
+        <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
+        <h4>What days are you available?:</h4>
+        <form method="POST" class="participate" action="/api/widgets">
+          <input type="text" name="pollId" hidden value="<%= pollId %>">
+          <input type="text" name="link" hidden value="<%= link %>">
           <div class="tableDiv">
             <table class="table">
-
             <thead>
               <tr>
                 <th scope="col">Name</th>
                 <% for(let option of options){%>
-
-                  <th scope="col" style="width: <%= 100/options.length %>">
+                  <th scope="col" style="width: <%= 100/options.length %>;">
                     <%= option.date %>
                   </th>
                 <% } %>
-
-
               </tr>
               </thead>
               <tbody>
                 <% for(let result of results){%>
                   <tr>
-                     <td>
-                       <%= name %>
-                     </td>
-                     <% for(let option of options){%>
-                      <td style="width: <%= 100/options.length %>">
-                        <input form="new" type="checkbox" checked=<%= result.choices.includes(option.date) %>
+                      <td>
+                        <%= name %>
+                      </td>
+                      <% for(let option of options){%>
+                      <td style="width: <%= 100/options.length %>;">
+                        <input type="checkbox" checked="<%= result.choices.includes(option.date) %>">
                       </td>
                     <% } %>
                   </tr>
                   <% } %>
                 <tr>
                   <td>
-                      <input form="new" id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em; width: 90%;">
-                      <input form="new" id="email" type="email" name="email" placeholder="Email" style="width: 90%;">
+                      <input id="name" type="text" name="name" placeholder="Name" style="margin-bottom: .5em; width: 90%;">
+                      <input id="email" type="email" name="email" placeholder="Email" style="width: 90%;">
                   </td>
                   <% for(const option of options){%>
-                    <td style="width: <%= 100/options.length %>">
-                      <input form="new" name="choices[<%= option.id %>]" type="checkbox" >
+                    <td style="width: <%= 100/options.length %>;">
+                      <input name="choices[<%= option.id %>]" type="checkbox">
                     </td>
                   <% } %>
                   </tr>
                 </tbody>
               </table>
-            </div>
-              <button form="new" type="submit">Submit Availability</button></td>
+          </div>
+          <button type="submit" action="/api/widgets">Submit Availability</button>
+        </form>
+      </div>
     </main>
   </body>
 </html>
