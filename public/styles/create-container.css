@@ -1,12 +1,11 @@
 .create-container {
   position: relative;
-  display: flex;
+  display: block;
   justify-content: center;
   text-align: center;
   margin: 10px;
   border: solid 4px;
   border-radius: 10px;
-  margin-top: 5%;
   margin-right: 20%;
   margin-left: 20%;
   background-color: rgb(255, 166, 0);
@@ -46,7 +45,7 @@ h3 {
 }
 
 #form {
-  width: 100%;
+  width: 80%;
   height: 30px;
 }
 
@@ -60,14 +59,20 @@ h3 {
 }
 
 #invite {
-
   border: 2px solid black;
   border-radius: 8px;
   padding-bottom: 10px;
-  background: white;
+  background: cornsilk;
 }
 
 .table {
-
+  table-layout:fixed;
+  width:100%;
+  background-color: cornsilk;
 }
+
+td {
+  word-break: break-all;
+}
+
 
