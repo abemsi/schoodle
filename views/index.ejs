@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/vendor/zabuto_calendar.min.css">
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -39,14 +39,16 @@
     <nav>
       <span class="logo">
        <strong>SCHOODLE</strong>
+       <img src="styles/images/fox.png" width=50 id="fox">
+       
       </span>
     </nav>
 
     <div class="main-header">
       <header>
-        CREATE SCHOODLE
+        <strong>CREATE SCHOODLE</strong>
         <div id="bouncingArrow">
-          <i class='fa fa-arrow-down'></i>
+          <i class="fas fa-hand-point-down" width=20></i>
         </div>
       </header>
     </div>
@@ -56,22 +58,24 @@
       <form method="POST" id="user_id" action="/api/users">
         <div class="schoodle-form">
           <h1> STEP 1: ENTER EVENT DETAILS </h1>
+          <img src="styles/images/fox.png" width=50 id="foxxie">
           <br>
           <label for="event-title">EVENT TITLE</label>
           <br>
-          <input id="form" type="text" name="event-title" placeholder=" name of event" style="margin-bottom: 1em; margin-top: .2em" required="">
+          <input id="form" type="text" name="event-title" placeholder="  name of event" style="margin-bottom: 1em; margin-top: .2em" required="">
           <br>
           <label for="description">DESCRIPTION</label>
           <br>
-          <input id="form" type="text" name="description" placeholder=" optional" style="margin-bottom: 1em; margin-top: .2em"">
+          <input id="form" type="text" name="description" placeholder="  optional" style="margin-bottom: 1em; margin-top: .2em"">
           <br>
           <label for="location">LOCATION</label>
           <br>
-          <input id="form" type="text" name="location" placeholder=" optional" style="margin-bottom: 1em; margin-top: .2em"">
+          <input id="form" type="text" name="location" placeholder="  optional" style="margin-bottom: 1em; margin-top: .2em"">
         </div>
         <div class="options">
           <h1> STEP 2: PICK YOUR DATES </h1>
         </div>
+        
         <input id="calendar-dates" type="hidden" name="calendar-dates">
 
         <div class="calendar">
@@ -82,11 +86,11 @@
           <h1>STEP 3: CONTACT INFO </h1>
           <label for="creator-name">NAME</label>
           <br>
-          <input id="form" type="text" name="creator-name" placeholder=" enter name" style="margin-bottom: 1em; margin-top: .2em" required="">
+          <input id="form" type="text" name="creator-name" placeholder="  enter name" style="margin-bottom: 1em; margin-top: .2em" required="">
           <br>
           <label for="creator-email">EMAIL</label>
           <br>
-          <input id="form" type="email" name="email" placeholder=" enter email" style="margin-bottom: 1em; margin-top: .2em" required="">
+          <input id="form" type="email" name="email" placeholder="  enter email" style="margin-bottom: 1em; margin-top: .2em" required="">
           <!-- hidden form for link -->
           <input id="link" type="hidden" name="link">
         </div>
