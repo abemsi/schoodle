@@ -6,7 +6,7 @@
 ![Screenshot from 2019-11-22 13-19-08](https://user-images.githubusercontent.com/48977789/69458023-a9b22280-0d2b-11ea-90c8-f75a348645ef.png)
 ![Screenshot from 2019-11-22 13-16-53](https://user-images.githubusercontent.com/48977789/69458025-a9b22280-0d2b-11ea-9b46-9a2c26299a2c.png)
 
-LHL Node Skeleton
+Schoodle 
 =========
 
 ## Project Setup
