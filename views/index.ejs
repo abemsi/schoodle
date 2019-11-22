@@ -30,7 +30,7 @@
           $("#my-calendar").zabuto_calendar({language: "en"});
       });
   </script>
-    
+
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
   </head>
 
@@ -38,7 +38,7 @@
 
     <nav>
       <span class="logo">
-       <strong>SCHOODLE..</strong>
+       <strong>SCHOODLE</strong>
       </span>
     </nav>
 
@@ -56,34 +56,37 @@
       <form method="POST" id="user_id" action="/api/users">
         <div class="schoodle-form">
           <h1> STEP 1: ENTER EVENT DETAILS </h1>
-          <label for="event-title"><u>EVENT TITLE</u></label>
           <br>
-          <input id="form" type="text" name="event-title" placeholder=" name of event" style="margin-bottom: 1em; margin-top: 1em" required="">
+          <label for="event-title">EVENT TITLE</label>
           <br>
-          <label for="description"><u>DESCRIPTION</u></label>
+          <input id="form" type="text" name="event-title" placeholder=" name of event" style="margin-bottom: 1em; margin-top: .2em" required="">
           <br>
-          <input id="form" type="text" name="description" placeholder=" optional" style="margin-bottom: 1em; margin-top: 1em">
+          <label for="description">DESCRIPTION</label>
           <br>
-          <label for="location"><u>LOCATION</u></label>
+          <input id="form" type="text" name="description" placeholder=" optional" style="margin-bottom: 1em; margin-top: .2em"">
           <br>
-          <input id="form" type="text" name="location" placeholder=" optional" style="margin-bottom: 1em; margin-top: 1em">
+          <label for="location">LOCATION</label>
+          <br>
+          <input id="form" type="text" name="location" placeholder=" optional" style="margin-bottom: 1em; margin-top: .2em"">
         </div>
         <div class="options">
           <h1> STEP 2: PICK YOUR DATES </h1>
         </div>
         <input id="calendar-dates" type="hidden" name="calendar-dates">
-        
-        <div id="my-calendar"></div>
-      
+
+        <div class="calendar">
+          <div id="my-calendar"></div>
+        </div>
+
         <div class="creator-info">
           <h1>STEP 3: CONTACT INFO </h1>
-          <label for="creator-name"><u>NAME</u></label>
+          <label for="creator-name">NAME</label>
           <br>
-          <input id="form" type="text" name="creator-name" placeholder=" enter name" style="margin-bottom: 1em; margin-top: 1em" required="">
+          <input id="form" type="text" name="creator-name" placeholder=" enter name" style="margin-bottom: 1em; margin-top: .2em" required="">
           <br>
-          <label for="creator-email"><u>EMAIL</u></label>
+          <label for="creator-email">EMAIL</label>
           <br>
-          <input id="form" type="email" name="email" placeholder=" enter email" style="margin-bottom: 1em; margin-top: 1em" required="">
+          <input id="form" type="email" name="email" placeholder=" enter email" style="margin-bottom: 1em; margin-top: .2em" required="">
           <!-- hidden form for link -->
           <input id="link" type="hidden" name="link">
         </div>
