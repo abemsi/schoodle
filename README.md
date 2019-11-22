@@ -6,8 +6,6 @@
 ![Screenshot from 2019-11-22 13-19-08](https://user-images.githubusercontent.com/48977789/69458023-a9b22280-0d2b-11ea-90c8-f75a348645ef.png)
 ![Screenshot from 2019-11-22 13-16-53](https://user-images.githubusercontent.com/48977789/69458025-a9b22280-0d2b-11ea-9b46-9a2c26299a2c.png)
 
-
-
 LHL Node Skeleton
 =========
 
@@ -51,3 +49,16 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## [ Front-end Languages ]
+- HTML 
+- CSS 
+- JS 
+- jQuery 
+- AJAX for calendar
+
+## [ Back-end Languages ]
+- Node
+- Express 
+- MongoDB
+
