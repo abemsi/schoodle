@@ -18,6 +18,10 @@ module.exports = (db) => {
       console.log('HELLO JOE', req.body);
       const choicesObj = req.body.choices;
       if (choicesObj === undefined) {
+        $(".isa_error").show()
+      setTimeout( function () {
+        $(".isa_error").hide()  
+      },4000) 
         res.status(420).send('No checkbox was marked')
         return;
       }
