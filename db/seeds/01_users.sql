@@ -12,7 +12,7 @@
 -- VALUES ('Rod', 'iliketoparty@gmail.com');
 
 -- INSERT INTO users (name, email)
--- VALUES ('Denise', 'youlookshitty@gmail.com');
+-- VALUES ('Denise', 'youlookgreat@gmail.com');
 
 -- -- Polls table seeds
 -- INSERT INTO polls (title, description, location, organizer_id, link)
