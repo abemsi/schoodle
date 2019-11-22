@@ -1,4 +1,4 @@
-## Final Version
+## Schoodle Project
 ## Screenshots
 
 ![Screenshot from 2019-11-22 13-16-23](https://user-images.githubusercontent.com/48977789/69458027-a9b22280-0d2b-11ea-8c8c-79154d504f80.png)
