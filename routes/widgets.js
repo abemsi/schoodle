@@ -15,16 +15,23 @@ module.exports = (db) => {
     console.log('reqbody in widgets :', choiceData)
   
     db.addAttendee(choiceData).then(function(attendee) {
+      console.log('HELLO JOE', req.body);
       const choicesObj = req.body.choices;
+      if (choicesObj === undefined) {
+        res.status(420).send('Bad request to our server please try again brah')
+        return;
+      }
       return Object.keys(choicesObj)
       .filter(id => choicesObj[id] === 'on')
       .map(option_id => {
         return db.addChoice(option_id, attendee.id, choiceData.pollId)
       })
+    }).catch(err => {
+      console.log('db.Addattendee :', err)
     }).then(() => {
       res.redirect(`/schoodles/${choiceData.link}`)
-    }).catch(err => {
-      console.error(err);
+    }).catch('redirect', e => {
+      console.error(e);
     });
   })
   return router;
