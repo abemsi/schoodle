@@ -4,7 +4,7 @@
   justify-content: center;
   text-align: center;
   margin: 10px;
-  border: solid 4px;
+  border: 2px solid black;
   border-radius: 10px;
   margin-right: 20%;
   margin-left: 20%;
@@ -55,6 +55,7 @@ h3 {
   font-size: 4.5mm;
   background-color: #f7da83;
   border: solid 4px #333;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 
@@ -63,6 +64,14 @@ h3 {
   border-radius: 8px;
   padding-bottom: 10px;
   background: cornsilk;
+  position: relative;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .table {
@@ -73,6 +82,11 @@ h3 {
 
 td {
   word-break: break-all;
+}
+
+.calendar {
+  width: 90%;
+  display: inline-block;
 }
 
 
