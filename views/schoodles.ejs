@@ -47,23 +47,23 @@
     </nav>
 
 
-    <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
+    <div id="invite">
+        <h3>CONGRATS ON MAKING YOUR OWN SCHOODLE!</h3>
+      <h1>Invite Participants</h1>
+      <p>Everyone with the link an vote - no account required 😎</p>
+
+      <input type="text" id="copyText" style="width: 55%" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction()">Copy</button>
+    </div>
     <main class="create-container">
 
 
       <div class="main-header;", style="margin: 1em;">
 
-        <div id="invite">
-          <h1>Invite Participants</h1>
-          <p>Everyone with the link an vote - no account required 😎</p>
-
-          <input type="text" id="copyText" style="width: 55%" value="http://localhost:8080/schoodles/<%= options[0].link %>"><button onclick="myFunction()">Copy</button>
-        </div>
 
           <p><h1><%= options[0].title %></h1></p>
           <p><h4><strong>What:</strong></h4> <%= options[0].description %></p>
           <p><h4><strong>Where:</strong></h4> <%= options[0].location %></p>
-          <h4>Participate:</h4>
+          <h4>What days are you available?:</h4>
 
           <form method="POST" class="participate" action="/api/widgets" id="new">
             <input type="text" name="pollId" hidden value="<%= pollId %>">
