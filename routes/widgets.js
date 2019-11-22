@@ -18,7 +18,7 @@ module.exports = (db) => {
       console.log('HELLO JOE', req.body);
       const choicesObj = req.body.choices;
       if (choicesObj === undefined) {
-        res.status(420).send('Bad request to our server please try again brah')
+        res.status(420).send('No checkbox was marked')
         return;
       }
       return Object.keys(choicesObj)
