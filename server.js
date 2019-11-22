@@ -76,8 +76,9 @@ app.get("/schoodles/:link", (req, res) => {
       res.render("schoodles", { results: pollInfo.results, link: req.params.link, pollId, options: pollInfo.options });
     } else {
       res.status(400).send('Bad request')
-    }
-    
+    }   
+  }).catch(err =>{
+    console.error('app.get/schoodles', err);
   })
 });
 
