@@ -70,7 +70,7 @@ app.get("/", (req, res) => {
 
 app.get("/schoodles/:link", (req, res) => {
   db.getAllPollInformation(req.params.link).then( function(pollInfo) {
-    console.log('dfghjghjk', pollInfo)
+    
     const pollId = pollInfo.options[0] && pollInfo.options[0].poll_id;
     if(pollId) {
       res.render("schoodles", { results: pollInfo.results, link: req.params.link, pollId, options: pollInfo.options });
